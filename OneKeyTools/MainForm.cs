@@ -43,7 +43,7 @@ namespace OneKeyTools
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.F5)
             {
                 if (EnterKeyDown) return;
                 EnterKeyDown = true;
@@ -53,17 +53,18 @@ namespace OneKeyTools
 
         private void MainForm_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.F5)
             {
                 EnterKeyDown = false;
                 this.BackgroundImage = UnityResource._1;
+                //KeyPress()时间无法由F5触发，使用KeyUp()事件
+                PopText("嘻嘻嘻~小可爱~么么哒~~~");
             }
         }
 
         private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //PopText(DateTime.Now.ToString());
-            PopText("嘻嘻嘻~小可爱~么么哒~~~");
+            
         }
 
         private void PopText(string Message)
